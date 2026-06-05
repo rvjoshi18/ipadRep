@@ -1,0 +1,35 @@
+{
+  "name": "C# Dev Environment",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:8.0",
+
+  "features": {
+    "ghcr.io/devcontainers/features/dotnet:2": {
+      "version": "latest"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.csdevkit",
+        "ms-dotnettools.vscode-dotnet-runtime",
+        "streetsidesoftware.code-spell-checker"
+      ],
+      "settings": {
+        "editor.fontSize": 15,
+        "editor.wordWrap": "on",
+        "editor.formatOnSave": true,
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 2000,
+        "terminal.integrated.fontSize": 14
+      }
+    }
+  },
+
+  "postCreateCommand": "dotnet tool install -g dotnet-script",
+
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/root/.dotnet/tools"
+  }
+}
